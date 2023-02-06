@@ -1,37 +1,80 @@
 package com.bridgelabz.addressbook;
 
+import java.util.*;
+
 import java.util.Scanner;
+    public class AddressBook extends Contact{
+        Scanner scan = new Scanner(System.in);
 
-public class AddressBook {
-    Scanner scanner = new Scanner(System.in);
-    public void CreateContact(){
-        Contact contact = new Contact();
-        System.out.println("Enter first name");
-        String firstname = scanner.next();
-        contact.setFirstname(firstname);
-        System.out.println("Enter last name");
-        String lastname = scanner.next();
-        contact.setLastname(lastname);
-        System.out.println("Enter address");
-        String address = scanner.next();
-        contact.setLastname(address);
-        System.out.println("Enter city");
-        String city = scanner.next();
-        contact.setCity(city);
-        System.out.println("Enter state");
-        String state = scanner.next();
-        contact.setState(state);
-        System.out.println("Enter zip");
-        int zip = scanner.nextInt();
-        contact.setZip(zip);
-        System.out.println("Enter phonenum");
-        long phonenum = scanner.nextLong();
-        contact.setPhonenum(phonenum);
-        System.out.println("Enter email");
-        String email = scanner.next();
-        contact.setEmail(email);
-        System.out.println(contact);
+        public Contact addDetails(ArrayList al1) {
+            Contact contact = new Contact();
 
+            System.out.print("Enter first name :: ");
+            firstname = scan.next();
+            contact.setFirstname(firstname);
+
+            System.out.print("Please Enter The Last Name :: ");
+            lastname = scan.next();
+            contact.setLastname(lastname);
+
+            System.out.print("Please Enter The Address :: ");
+            address = scan.next();
+            contact.setAddress(address);
+
+            System.out.print("Please Enter The City :: ");
+            city = scan.next();
+            contact.setCity(city);
+
+            System.out.print("Please Enter The State :: ");
+            state = scan.next();
+            contact.setState(state);
+
+            System.out.print("Please Enter The email ID :: ");
+            email = scan.next();
+            contact.setEmail(email);
+
+            System.out.print("Please Enter The Zip Code :: ");
+            zipCode = scan.nextInt();
+            contact.setZipCode(zipCode);
+
+            System.out.print("Please Enter The Phone Number :: ");
+            phoneNo = scan.nextLong();
+            contact.setPhoneNo(phoneNo);
+
+            // System.out.println(obj);
+
+            al1.add(contact);
+
+            return contact;
+        }
+
+        void addMultipleContacts(ArrayList al1) {
+            AddressBook obj = new AddressBook();
+            String ch;
+            do {
+                Scanner scan = new Scanner(System.in);
+
+                System.out.println("DO YOU WANT TO ADD MORE CONTACT (PRESS y to contune)");
+                System.out.println("Enter choice 1.to add Contact ");
+                int choice;
+                choice = scan.nextInt();
+
+                switch (choice) {
+
+                    case 1:
+                        obj.addDetails(al1);
+                        break;
+
+                    default:
+                        System.out.println("Invalid Input");
+                }
+                System.out.println("DO YOU WANT TO ADD MORE CONTACT (PRESS y to contune)");
+                ch = scan.next();
+            } while (ch.equals("y") || ch.equals("Y"));
+
+            System.out.println(al1);
+
+        }
 
     }
 }

@@ -1,9 +1,10 @@
 package com.bridgelabz.addressbook;
-
+import java.util.ArrayList;
 public class AddressBookMain {
     public static void main(String[] args) {
-        System.out.println("Welcome to address book program");
-        AddressBook addressBook = new AddressBook();
-        addressBook.CreateContact();
+        ArrayList al1 = new ArrayList();
+        AddressBook obj = new AddressBook();
+        obj.addDetails(al1);
+        obj.addMultipleContacts(al1);
     }
 }
